@@ -13,3 +13,15 @@ export const getWeatherApi = async (city: string) => {
 
   return res;
 };
+
+/**
+ *
+ *  Get city name from lat long
+ */
+export const getCityNameApi = async (lat: number, long: number) => {
+  let endpoint = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${long}`;
+
+  let res = await axios.get(endpoint);
+
+  return res;
+};

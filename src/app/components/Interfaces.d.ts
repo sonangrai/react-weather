@@ -7,6 +7,7 @@ interface Idata {
   city: string;
   degree: number;
   icon: string;
+  current: boolean;
 }
 
 interface Ierr {

@@ -25,6 +25,7 @@ function Search({ sendData, resetError, sendError }: props) {
           city: res.data.name,
           degree: res.data.main.temp - 273.15,
           icon: res.data.weather[0].icon,
+          current: false,
         };
         sendData(pack);
         setSearching(false);

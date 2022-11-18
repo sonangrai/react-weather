@@ -3,9 +3,10 @@ import WeatherCard from "./WeatherCard";
 
 interface props {
   data: Idata[];
+  deleteCity: (a: string) => void;
 }
 
-function Lists({ data }: props) {
+function Lists({ data, deleteCity }: props) {
   return (
     <div
       style={{
@@ -17,7 +18,14 @@ function Lists({ data }: props) {
     >
       {data.length > 0 ? (
         data.map((d, i) => (
-          <WeatherCard key={i} city={d.city} degree={d.degree} icon={d.icon} />
+          <WeatherCard
+            key={i}
+            city={d.city}
+            degree={d.degree}
+            icon={d.icon}
+            deleteCity={deleteCity}
+            current={d.current}
+          />
         ))
       ) : (
         <Empty />
