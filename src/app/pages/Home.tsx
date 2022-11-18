@@ -3,6 +3,9 @@ import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import Header from "../components/Header";
 import Search from "../components/Search";
+import Error from "../components/Error";
+import { Divider } from "@mui/material";
+import Lists from "../components/Lists";
 
 function Home() {
   return (
@@ -19,6 +22,9 @@ function Home() {
             </Grid>
           </Grid>
         </Card>
+        <Error msg="City Not Found !!" />
+        <Divider />
+        <Lists />
       </Container>
     </div>
   );
