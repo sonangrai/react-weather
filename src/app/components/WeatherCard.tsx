@@ -2,21 +2,24 @@ import { Card } from "@mui/material";
 import PlaceIcon from "@mui/icons-material/Place";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
-function WeatherCard() {
+interface props {
+  city: string;
+  degree: number;
+  icon: string;
+}
+
+function WeatherCard({ city, degree, icon }: props) {
   return (
     <Card variant="outlined">
       <div className="weather_card">
         <div className="city">
           <div>
             <PlaceIcon />
-            <h3>Kathmandu</h3>
+            <h3>{city}</h3>
           </div>
-          <strong>24^F</strong>
+          <strong>{Math.ceil(degree)}°C </strong>
         </div>
-        <img
-          src="https://cdn.pixabay.com/photo/2022/11/01/08/43/mountains-7561636_1280.png"
-          alt=""
-        />
+        <img src={`http://openweathermap.org/img/w/${icon}.png`} alt="icon" />
         <span className="close">
           <HighlightOffIcon />
         </span>

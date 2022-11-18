@@ -2,7 +2,7 @@ import Empty from "./Empty";
 import WeatherCard from "./WeatherCard";
 
 interface props {
-  data: Ires[];
+  data: Idata[];
 }
 
 function Lists({ data }: props) {
@@ -16,7 +16,9 @@ function Lists({ data }: props) {
       }}
     >
       {data.length > 0 ? (
-        data.map((d, i) => <WeatherCard key={i} />)
+        data.map((d, i) => (
+          <WeatherCard key={i} city={d.city} degree={d.degree} icon={d.icon} />
+        ))
       ) : (
         <Empty />
       )}

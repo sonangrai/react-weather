@@ -5,11 +5,12 @@ import React, { useState } from "react";
 import { getWeatherApi } from "../api.services";
 
 interface props {
-  sendData: (a: Ires) => void | Ires;
-  resetError: (a: any) => any;
+  sendData: (a: Idata) => void | Ires;
+  resetError: (a: any) => void | any;
+  sendError: (a: Ierr) => void | Ierr;
 }
 
-function Search({ sendData, resetError }: props) {
+function Search({ sendData, resetError, sendError }: props) {
   const [city, setCity] = useState("");
   const [searching, setSearching] = useState(false);
 
@@ -20,19 +21,16 @@ function Search({ sendData, resetError }: props) {
     resetError(null);
     getWeatherApi(city).then(
       (res) => {
-        console.log(res);
-        sendData({
-          type: "success",
-          data: res.data,
-        });
+        let pack = {
+          city: res.data.name,
+          degree: res.data.main.temp - 273.15,
+          icon: res.data.weather[0].icon,
+        };
+        sendData(pack);
         setSearching(false);
       },
       (err) => {
-        console.log(err.response.data);
-        sendData({
-          type: "error",
-          data: err.response.data,
-        });
+        sendError(err.response.data);
         setSearching(false);
       }
     );

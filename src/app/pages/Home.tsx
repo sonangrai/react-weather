@@ -9,16 +9,15 @@ import { Divider } from "@mui/material";
 import Lists from "../components/Lists";
 
 function Home() {
-  const [data, setData] = useState<Ires[]>([]); //All weather data
-  const [error, setError] = useState(null);
+  const [data, setData] = useState<Idata[]>([]); //All weather data
+  const [error, setError] = useState<Ierr>();
 
-  const getData = (d: Ires) => {
-    console.log(d);
-    if (d.type === "success") {
-      setData([...data, d.data]);
-    } else {
-      setError(d.data.message);
-    }
+  const getData = (d: Idata) => {
+    setData([...data, d]);
+  };
+
+  const getErr = (d: Ierr) => {
+    setError(d);
   };
 
   return (
@@ -31,11 +30,15 @@ function Home() {
               <h2>Search for City</h2>
             </Grid>
             <Grid item xs={12}>
-              <Search sendData={getData} resetError={setError} />
+              <Search
+                sendData={getData}
+                sendError={getErr}
+                resetError={setError}
+              />
             </Grid>
           </Grid>
         </Card>
-        <Error msg={error ? error : null} />
+        <Error msg={error ? error.message : null} />
         <Divider />
         <Lists data={data} />
       </Container>

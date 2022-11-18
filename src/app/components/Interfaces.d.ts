@@ -1,6 +1,12 @@
 interface Ires {
   type: string;
-  data: object | any;
+  data: Idata | Ierr;
+}
+
+interface Idata {
+  city: string;
+  degree: number;
+  icon: string;
 }
 
 interface Ierr {
