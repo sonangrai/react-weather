@@ -1,6 +1,11 @@
+import Empty from "./Empty";
 import WeatherCard from "./WeatherCard";
 
-function Lists() {
+interface props {
+  data: Ires[];
+}
+
+function Lists({ data }: props) {
   return (
     <div
       style={{
@@ -10,9 +15,11 @@ function Lists() {
         gap: "2em",
       }}
     >
-      {[...Array(4)].map((d, i) => (
-        <WeatherCard key={i} />
-      ))}
+      {data.length > 0 ? (
+        data.map((d, i) => <WeatherCard key={i} />)
+      ) : (
+        <Empty />
+      )}
     </div>
   );
 }

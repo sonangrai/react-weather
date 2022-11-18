@@ -2,7 +2,7 @@ import Chip from "@mui/material/Chip";
 import ErrorOutlineIcon from "@mui/icons-material/ErrorOutline";
 
 interface props {
-  msg?: string;
+  msg?: string | null;
 }
 
 function Error({ msg }: props) {

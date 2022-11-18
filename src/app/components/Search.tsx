@@ -1,12 +1,41 @@
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
-import React from "react";
-function Search() {
+import React, { useState } from "react";
+import { getWeatherApi } from "../api.services";
+
+interface props {
+  sendData: (a: Ires) => void | Ires;
+  resetError: (a: any) => any;
+}
+
+function Search({ sendData, resetError }: props) {
+  const [city, setCity] = useState("");
+  const [searching, setSearching] = useState(false);
+
   //Submit
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log(e);
+    setSearching(true);
+    resetError(null);
+    getWeatherApi(city).then(
+      (res) => {
+        console.log(res);
+        sendData({
+          type: "success",
+          data: res.data,
+        });
+        setSearching(false);
+      },
+      (err) => {
+        console.log(err.response.data);
+        sendData({
+          type: "error",
+          data: err.response.data,
+        });
+        setSearching(false);
+      }
+    );
   };
 
   return (
@@ -17,14 +46,18 @@ function Search() {
           label="City"
           size="small"
           variant="outlined"
+          name="city"
+          value={city}
+          onChange={(e) => setCity(e.target.value)}
         />
         <Button
           variant="contained"
           size="large"
           type="submit"
           startIcon={<SearchIcon />}
+          disabled={searching}
         >
-          Search
+          {searching ? "searching..." : "Search"}
         </Button>
       </form>
     </div>
