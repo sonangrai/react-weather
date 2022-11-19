@@ -1,6 +1,8 @@
+/// <reference types="cypress" />
+
 describe("Wrong Location Check", () => {
-  it("Visit Login Page", () => {
-    //Visiting login page
+  it("Visit Top Page", () => {
+    //Visiting top page
     cy.visit("/");
 
     //Getting the password input from UI and submitting
@@ -11,5 +13,3 @@ describe("Wrong Location Check", () => {
       });
   });
 });
-
-export {};
