@@ -9,10 +9,12 @@ import Error from "../components/Error";
 import { Divider } from "@mui/material";
 import Lists from "../components/Lists";
 import { getCityNameApi, getWeatherApi } from "../api.services";
+import { useTranslation } from "react-i18next";
 
 function Home() {
   const [data, setData] = useState<Idata[]>([]); //All weather data
   const [error, setError] = useState<Ierr>();
+  const { t } = useTranslation();
 
   //Get location
   useEffect(() => {
@@ -80,7 +82,7 @@ function Home() {
         <Card variant="outlined" style={{ padding: "1em" }}>
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <h2>Search for City</h2>
+              <h2>{t("search_title")}</h2>
             </Grid>
             <Grid item xs={12}>
               <Search

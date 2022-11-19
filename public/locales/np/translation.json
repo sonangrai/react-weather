@@ -1,3 +1,9 @@
 {
-  "app_title": "एक साधारण मौसम एप"
+  "app_title": "एक साधारण मौसम एप",
+  "search_title": "शहर खोज्नुहोस्",
+  "searching": "खोज्दै...",
+  "Search": "खोज्नुहोस्",
+  "City": "सहर",
+  "Language": "भाषा",
+  "your_location": "तपाईंको स्थान"
 }

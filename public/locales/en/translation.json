@@ -1,3 +1,9 @@
 {
-  "app_title": "A Simple Weather App"
+  "app_title": "A Simple Weather App",
+  "search_title": "Search for City",
+  "searching": "Searching...",
+  "search": "Search",
+  "City": "City",
+  "Language": "Language",
+  "your_location": "Your Location"
 }

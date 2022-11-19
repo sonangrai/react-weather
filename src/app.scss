@@ -15,9 +15,26 @@ h3 {
   font-weight: 400;
 }
 
+.app_header {
+  .lang_selector {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .title {
+    margin: 1em 0;
+  }
+  .lngitm {
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 4px;
+    }
+  }
+}
+
 .home_page {
   display: flex;
-  padding: 5em 0;
+  padding: 2em 0;
   min-height: 100vh;
   justify-content: center;
 }

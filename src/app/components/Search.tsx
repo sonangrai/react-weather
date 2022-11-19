@@ -3,6 +3,7 @@ import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search";
 import React, { useState } from "react";
 import { getWeatherApi } from "../api.services";
+import { useTranslation } from "react-i18next";
 
 interface props {
   sendData: (a: Idata) => void | Ires;
@@ -11,6 +12,7 @@ interface props {
 }
 
 function Search({ sendData, resetError, sendError }: props) {
+  const { t } = useTranslation();
   const [city, setCity] = useState("");
   const [searching, setSearching] = useState(false);
 
@@ -42,7 +44,7 @@ function Search({ sendData, resetError, sendError }: props) {
       <form onSubmit={handleSubmit} className="search_form">
         <TextField
           style={{ width: "100%" }}
-          label="City"
+          label={t("City")}
           size="small"
           variant="outlined"
           name="city"
@@ -56,7 +58,7 @@ function Search({ sendData, resetError, sendError }: props) {
           startIcon={<SearchIcon />}
           disabled={searching}
         >
-          {searching ? "searching..." : "Search"}
+          {searching ? t("Searching") : t("Search")}
         </Button>
       </form>
     </div>
