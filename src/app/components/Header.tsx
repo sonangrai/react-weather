@@ -1,6 +1,8 @@
-import React from "react";
+import { useTranslation } from "react-i18next";
 
 function Header() {
+  const { t } = useTranslation();
+
   return (
     <div
       style={{
@@ -8,7 +10,7 @@ function Header() {
         marginBottom: "2em",
       }}
     >
-      <h1>A Simple Weather App</h1>
+      <h1>{t("app_title")}</h1>
     </div>
   );
 }
