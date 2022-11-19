@@ -58,7 +58,7 @@ function Search({ sendData, resetError, sendError }: props) {
           startIcon={<SearchIcon />}
           disabled={searching}
         >
-          {searching ? t("Searching") : t("Search")}
+          {searching ? t("searching") : t("Search")}
         </Button>
       </form>
     </div>
