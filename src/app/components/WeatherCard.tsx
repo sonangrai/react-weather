@@ -18,7 +18,7 @@ function WeatherCard({ city, degree, icon, deleteCity, current }: props) {
           <div>
             <PlaceIcon />
             <h3>
-              {city} {current && <span> "Your Location"</span>}
+              {city} {current && <small> "Your Location"</small>}
             </h3>
           </div>
           <strong>{Math.ceil(degree)}°C </strong>

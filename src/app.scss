@@ -27,6 +27,9 @@ h3 {
   justify-content: space-between;
   align-items: center;
   gap: 1em;
+  @media screen and (max-width: 480px) {
+    flex-wrap: wrap;
+  }
 }
 
 .weather_card {
